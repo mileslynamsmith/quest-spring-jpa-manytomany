@@ -13,6 +13,9 @@ public class Course {
     private Long id;
     private String name;
 
+    @ManyToMany(mappedBy = "courses")
+    private List<Wizard> wizards;
+
     public Course() {
     }
 
@@ -34,5 +37,13 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Wizard> getWizards() {
+        return wizards;
+    }
+    
+    public void setWizards(List<Wizard> wizards) {
+        this.wizards = wizards;
     }
 }
