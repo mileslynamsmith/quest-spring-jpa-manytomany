@@ -4,7 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Wizard {
@@ -23,6 +28,7 @@ public class Wizard {
     @JoinTable(name = "wizard_course",
             joinColumns = @JoinColumn(name = "wizard_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Course> courses;
     
 
     public Wizard() {
